@@ -41,6 +41,7 @@ function draw() {
 
 function mousePressed() {
   background(220);
+  
   randomIndex = int(random(cars.length));
   console.log(cars[randomIndex].name);
   text(cars[randomIndex].name, 200, 200);
