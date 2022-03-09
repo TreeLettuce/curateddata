@@ -33,11 +33,17 @@ function setup() {
   createCanvas(400, 400);
   background(220);
 
-  randomIndex = int(random(cars.length));
-  console.log(cars[randomIndex].name);
-  text(cars[randomIndex].name, 200, 200);
 }
 
 function draw() {
+
+}
+
+function mousePressed() {
+  background(220);
+  randomIndex = int(random(cars.length));
+  console.log(cars[randomIndex].name);
+  text(cars[randomIndex].name, 200, 200);
+  cars.splice(randomIndex, 1);
 
 }
