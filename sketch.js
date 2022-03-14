@@ -1,5 +1,6 @@
 let cars = [];
 let numCars = 8;
+let randomIndex;
 
 function preload() {
   let car0 = loadImage('car0.png');
@@ -13,8 +14,6 @@ function preload() {
   cars = [car0,car1,car2,car3,car4,car5,car6,car7];
   }
 
-//let randomIndex;
-
   function setup() {
     createCanvas(1000, 1000);
     noLoop();
@@ -23,13 +22,12 @@ function preload() {
   function draw() {
     background(220);
     imageMode(CENTER);
-    let randomCar = random(cars);
-    image(randomCar);
+    //let randomCar = random(cars);
+    //image(randomCar);
   }
 
-//function mousePressed() {
-    //randomIndex = int(random(cars.length));
-    //console.log(cars[randomIndex].name);
-    //text(cars[randomIndex].name, 200, 200);
-    //cars.splice(randomIndex, 1);
-//}
+function mousePressed() {
+    randomIndex = int(random(cars.length));
+    image(cars[randomIndex]);
+    cars.splice(randomIndex, 1);
+}
