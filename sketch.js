@@ -9,9 +9,6 @@ let randomWheels;
 
 let wheelbase;
 
-//let randomIndex;
-
-
 function preload() {
 
   wheelbase = loadImage('images/base.png');
@@ -81,8 +78,4 @@ function mousePressed() {
   image(cars[randomCar], 500, 500);
 }
 
-//function mousePressed() {
-//randomIndex = int(random(cars.length));
-//image(cars[randomIndex]);
 //cars.splice(randomIndex, 1);
-//}
