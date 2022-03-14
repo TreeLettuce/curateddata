@@ -61,24 +61,24 @@ function draw() {
   image(wheelbase, 500, 500);
 
   let randomWheels = int(random(wheels.length));
-  image(wheels[randomWheels],500 ,500)
+  image(wheels[randomWheels], 500, 500)
 
   let randomCar = int(random(cars.length));
-  image(cars[randomCar],500 ,500);
+  image(cars[randomCar], 500, 500);
 
 }
 
-function mousePressed(){
+function mousePressed() {
   let randomBg = int(random(bg.length));
   image(bg[randomBg], 500, 500)
 
   image(wheelbase, 500, 500);
 
   let randomWheels = int(random(wheels.length));
-  image(wheels[randomWheels],500 ,500)
+  image(wheels[randomWheels], 500, 500)
 
   let randomCar = int(random(cars.length));
-  image(cars[randomCar],500 ,500);
+  image(cars[randomCar], 500, 500);
 }
 
 //function mousePressed() {
