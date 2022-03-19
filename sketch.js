@@ -112,74 +112,75 @@ function draw() {
   image(cars[randomCar], 500, 500);
 
   drawTitle();
+
   drawFakeButtons();
 }
 
-  function drawTitle() {
-    randomTitle1 = int(random(title1.length));
-    randomTitle2 = int(random(title2.length));
-    push();
-    fill(255, 255, 0);
-    stroke(0)
-    strokeWeight(3);
-    textSize(width / 11);
-    textAlign(CENTER);
-    text(title1[randomTitle1].adj + ' ' + title2[randomTitle2].name, 500, 120);
-    pop();
-    push();
-    stroke(255)
-    strokeWeight(2);
-    fill(25);
-    textSize(width / 50);
-    textAlign(CENTER);
-    text('POWERED BY JAVASCRIPT', 500, 150)
-    pop();
-  }
+function drawTitle() {
+  randomTitle1 = int(random(title1.length));
+  randomTitle2 = int(random(title2.length));
+  push();
+  fill(255, 255, 0);
+  stroke(0)
+  strokeWeight(3);
+  textSize(width / 11);
+  textAlign(CENTER);
+  text(title1[randomTitle1].adj + ' ' + title2[randomTitle2].name, 500, 120);
+  pop();
+  push();
+  stroke(255)
+  strokeWeight(2);
+  fill(25);
+  textSize(width / 50);
+  textAlign(CENTER);
+  text('POWERED BY JAVASCRIPT', 500, 150)
+  pop();
+}
 
-  function drawBackground() {
-    let randomBg = int(random(bg.length));
-    image(bg[randomBg], 500, 500)
+function drawBackground() {
+  let randomBg = int(random(bg.length));
+  image(bg[randomBg], 500, 500)
 
-    image(wheelbase, 500, 500);
+  image(wheelbase, 500, 500);
 
-    let randomWheels = int(random(wheels.length));
-    image(wheels[randomWheels], 500, 500)
+  let randomWheels = int(random(wheels.length));
+  image(wheels[randomWheels], 500, 500)
 
-    let randomCar = int(random(cars.length));
-    image(cars[randomCar], 500, 500);
+  let randomCar = int(random(cars.length));
+  image(cars[randomCar], 500, 500);
 
+  drawFakeButtons();
 
-    drawFakeButtons();
-    drawTitle();
-  }
+  drawTitle();
+}
 
-  function drawFakeButtons() {
-    push();
-    stroke(0);
-    strokeWeight(2);
-    fill(255);
-    textSize(width / 20);
-    textAlign(CENTER);
-    text('NEW GAME', 285, 860)
-    pop();
+function drawFakeButtons() {
+  push();
+  stroke(0);
+  strokeWeight(2);
+  fill(255);
+  textSize(width / 20);
+  textAlign(CENTER);
+  text('NEW GAME', 285, 860)
+  pop();
 
-    push();
-    stroke(0);
-    strokeWeight(2);
-    fill(140);
-    textSize(width / 20);
-    textAlign(CENTER);
-    text('LOAD GAME', 725, 860);
-    pop();
-  }
+  push();
+  stroke(0);
+  strokeWeight(2);
+  fill(140);
+  textSize(width / 20);
+  textAlign(CENTER);
+  text('LOAD GAME', 725, 860);
+  pop();
+}
 
-  function drawError() {
-    push();
-    stroke(0, 0, 0);
-    strokeWeight(2);
-    fill(255, 0, 0);
-    textSize(width / 52);
-    textAlign(CENTER);
-    text('NO SAVES FOUND', 725, 790);
-    pop();
-  }
+function drawError() {
+  push();
+  stroke(0, 0, 0);
+  strokeWeight(2);
+  fill(255, 0, 0);
+  textSize(width / 52);
+  textAlign(CENTER);
+  text('NO SAVES FOUND', 725, 790);
+  pop();
+}
