@@ -9,6 +9,40 @@ let randomWheels;
 
 let wheelbase;
 
+let randomTitle1;
+let randomTitle2;
+
+let bungee;
+let button;
+
+let title1 = [{
+  adj: "SPEED"
+}, {
+  adj: "TURBO"
+}, {
+  adj: "SUPER"
+}, {
+  adj: "TOUGE"
+}, {
+  adj: "NITRO"
+}, {
+  adj: "DRIFT"
+}, {
+  adj: "JDM"
+}];
+
+let title2 = [{
+  name: "RACER"
+}, {
+  name: "RACING"
+}, {
+  name: "DRIVER"
+}, {
+  name: "DRIVING"
+}, {
+  name: "MASTER"
+}];
+
 function preload() {
 
   wheelbase = loadImage('images/base.png');
@@ -41,11 +75,25 @@ function preload() {
   let car7 = loadImage('images/car7.png');
   cars = [car0, car1, car2, car3, car4, car5, car6, car7];
 
+  bungee = loadFont('font/Bungee-Regular.ttf');
 }
 
 function setup() {
   createCanvas(1000, 1000);
   noLoop();
+  textFont(bungee);
+  button1 = createButton('NEW GAME');
+  button1.size(320, 100);
+  button1.position(125, 790);
+  button1.style('font-size', '50px');
+  button1.style('opacity', '0');
+  button1.mousePressed(drawBackground);
+  button2 = createButton('LOAD GAME');
+  button2.size(320, 100);
+  button2.position(565, 790);
+  button2.style('font-size', '50px');
+  button2.style('opacity', '0');
+  button2.mousePressed(drawError);
 }
 
 function draw() {
@@ -63,19 +111,75 @@ function draw() {
   let randomCar = int(random(cars.length));
   image(cars[randomCar], 500, 500);
 
+  drawTitle();
+  drawFakeButtons();
 }
 
-function mousePressed() {
-  let randomBg = int(random(bg.length));
-  image(bg[randomBg], 500, 500)
+  function drawTitle() {
+    randomTitle1 = int(random(title1.length));
+    randomTitle2 = int(random(title2.length));
+    push();
+    fill(255, 255, 0);
+    stroke(0)
+    strokeWeight(3);
+    textSize(width / 11);
+    textAlign(CENTER);
+    text(title1[randomTitle1].adj + ' ' + title2[randomTitle2].name, 500, 120);
+    pop();
+    push();
+    stroke(255)
+    strokeWeight(2);
+    fill(25);
+    textSize(width / 50);
+    textAlign(CENTER);
+    text('POWERED BY JAVASCRIPT', 500, 150)
+    pop();
+  }
 
-  image(wheelbase, 500, 500);
+  function drawBackground() {
+    let randomBg = int(random(bg.length));
+    image(bg[randomBg], 500, 500)
 
-  let randomWheels = int(random(wheels.length));
-  image(wheels[randomWheels], 500, 500)
+    image(wheelbase, 500, 500);
 
-  let randomCar = int(random(cars.length));
-  image(cars[randomCar], 500, 500);
-}
+    let randomWheels = int(random(wheels.length));
+    image(wheels[randomWheels], 500, 500)
 
-//cars.splice(randomIndex, 1);
+    let randomCar = int(random(cars.length));
+    image(cars[randomCar], 500, 500);
+
+
+    drawFakeButtons();
+    drawTitle();
+  }
+
+  function drawFakeButtons() {
+    push();
+    stroke(0);
+    strokeWeight(2);
+    fill(255);
+    textSize(width / 20);
+    textAlign(CENTER);
+    text('NEW GAME', 285, 860)
+    pop();
+
+    push();
+    stroke(0);
+    strokeWeight(2);
+    fill(140);
+    textSize(width / 20);
+    textAlign(CENTER);
+    text('LOAD GAME', 725, 860);
+    pop();
+  }
+
+  function drawError() {
+    push();
+    stroke(0, 0, 0);
+    strokeWeight(2);
+    fill(255, 0, 0);
+    textSize(width / 52);
+    textAlign(CENTER);
+    text('NO SAVES FOUND', 725, 790);
+    pop();
+  }
