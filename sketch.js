@@ -181,6 +181,6 @@ function drawError() {
   fill(255, 0, 0);
   textSize(width / 52);
   textAlign(CENTER);
-  text('NO SAVES FOUND', 725, 790);
+  text('NO SAVES FOUND', 725, 800);
   pop();
 }
