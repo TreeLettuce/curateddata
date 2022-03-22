@@ -1,2 +1,2 @@
 # curateddata
-curated data
+Game title card randomizer.
