@@ -94,6 +94,11 @@ function setup() {
   button2.style('font-size', '50px');
   button2.style('opacity', '0');
   button2.mousePressed(drawError);
+  button3 = createButton('CREDITS');
+  button3.size(450, 20);
+  button3.position(275, 965);
+  button3.style('font-size', '10px');
+  button3.style('opacity', '0');
 }
 
 function draw() {
@@ -113,6 +118,8 @@ function draw() {
 
   drawTitle();
 
+  drawFakeButtonBackground();
+
   drawFakeButtons();
 }
 
@@ -121,8 +128,8 @@ function drawTitle() {
   randomTitle2 = int(random(title2.length));
   push();
   fill(255, 255, 0);
-  stroke(0)
-  strokeWeight(3);
+  stroke(30)
+  strokeWeight(10);
   textSize(width / 11);
   textAlign(CENTER);
   text(title1[randomTitle1].adj + ' ' + title2[randomTitle2].name, 500, 120);
@@ -134,6 +141,14 @@ function drawTitle() {
   textSize(width / 50);
   textAlign(CENTER);
   text('POWERED BY JAVASCRIPT', 500, 150)
+  pop();
+  push();
+  stroke(170);
+  strokeWeight(1.5)
+  fill(25);
+  textSize(width / 76);
+  textAlign(CENTER);
+  text('TREELETTUCEGAMES™ 2022,  IN COLLABORATION WITH P5.JS', 500, 980)
   pop();
 }
 
@@ -149,9 +164,25 @@ function drawBackground() {
   let randomCar = int(random(cars.length));
   image(cars[randomCar], 500, 500);
 
-  drawFakeButtons();
 
   drawTitle();
+
+  drawFakeButtonBackground();
+
+  drawFakeButtons();
+}
+
+function drawFakeButtonBackground() {
+  push();
+  fill(50, 50, 50, 90);
+  noStroke();
+  rect(125, 790, 320, 100, 15);
+  pop();
+  push();
+  fill(50, 50, 50, 90);
+  noStroke();
+  rect(565, 790, 320, 100, 15);
+  pop();
 }
 
 function drawFakeButtons() {
@@ -161,7 +192,7 @@ function drawFakeButtons() {
   fill(255);
   textSize(width / 20);
   textAlign(CENTER);
-  text('NEW GAME', 285, 860)
+  text('NEW GAME', 285, 857.5)
   pop();
 
   push();
@@ -170,7 +201,7 @@ function drawFakeButtons() {
   fill(140);
   textSize(width / 20);
   textAlign(CENTER);
-  text('LOAD GAME', 725, 860);
+  text('LOAD GAME', 725, 857);
   pop();
 }
 
@@ -181,6 +212,6 @@ function drawError() {
   fill(255, 0, 0);
   textSize(width / 52);
   textAlign(CENTER);
-  text('NO SAVES FOUND', 725, 800);
+  text('NO SAVES FOUND', 725, 780);
   pop();
 }
